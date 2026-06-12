@@ -208,6 +208,7 @@ body{
     padding: 12px 25px;
     border: none;
     color: #fff;
+    /* background: var(--color-gradient); */
     background: var(--color-gradient);
 
 }
