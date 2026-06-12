@@ -192,6 +192,7 @@ body{
     width: 100%;
     outline: none;
     height: 100%;
+    /* appearance: none; */
     appearance: none;
 }
 
