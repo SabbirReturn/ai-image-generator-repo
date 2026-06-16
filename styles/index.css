@@ -173,6 +173,7 @@ body{
     pointer-events: none;
     padding-left: 7px;
     background: var(--color-input);
+    /* top: 50%; */
     top: 50%;
     font-size: 0.9rem;
     color: var(--color-placeholder);
