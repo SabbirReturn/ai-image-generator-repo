@@ -211,22 +211,19 @@ body{
     padding: 12px 25px;
     border: none;
     color: #fff;
-    /* background: var(--color-gradient); */
     background: var(--color-gradient);
 
 }
 
 .prompt-actions .generate-btn:hover{
     transform: translateY(-2px);
-    /* box-shadow: 0 4px 10px rgba(109, 40, 217, 0.3); */
     box-shadow: 0 4px 10px rgba(109, 40, 217, 0.3);
 }
 
 .main-content .gallery-grid{
-    /* display: grid; */
     display: grid;
     gap: 15px;
+    /* margin-top: 30px; */
     margin-top: 30px;
-    /* grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); */
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 }
