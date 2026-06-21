@@ -126,6 +126,7 @@ body{
 }
 
 .prompt-container .prompt-input::placeholder{
+    /* color: var(--color-placeholder); */
     color: var(--color-placeholder);
 }
 
