@@ -120,6 +120,7 @@ body{
     /* min-height: 120px; */
     min-height: 120px;
     padding: 16px 20px;
+    /* border-radius: 15px; */
     border-radius: 15px;
     color: var(--color-text);
     /* background: var(--color-input); */
