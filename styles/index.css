@@ -231,6 +231,10 @@ body{
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 }
 .gallery-grid .img-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
     overflow: hidden;
     aspect-ratio: 1;
@@ -240,7 +244,7 @@ body{
     transition: all 0.5s ease;
 }
 
-.gallery-grid .img-card:not(.loading):hover{
+.gallery-grid .img-card:not(.loading, .error):hover{
     transform: translateY(-5px);
     box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
 }
@@ -250,7 +254,7 @@ body{
     object-fit: cover;
 }
 
-.gallery-grid .img-card.loading :is(.result-img, .img-overly){
+.gallery-grid .img-card:is(.loading, .error) :is(.result-img, .img-overly){
     display: none;
 }
 
@@ -288,4 +292,44 @@ body{
 .gallery-grid .img-card .img-download-btn:hover{
     transform: scale(1.05);
     background: rgba(255, 255, 255, 0.4);
+}
+.gallery-grid .img-card .status-container{
+    padding: 15px;
+    display: none;
+    gap: 13px;
+    flex-direction: column;
+    align-items: center;
+}
+.gallery-grid .img-card:where(.loading, .error) .status-container{
+    display: flex;
+}
+
+.gallery-grid .img-card.loading .status-container i, .gallery-grid .img-card.error .spinner{
+    display: none;
+}
+
+.gallery-grid .img-card.error .status-container i{
+    font-size: 1.7rem;
+    color: #ef4444;
+}
+
+.gallery-grid .img-card.loading .spinner{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid var(--color-border);
+    border-top-color:var(--color-primary);
+    /* animation: spin 1s linear infinite; */
+}
+
+@keyframes spin{
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.gallery-grid .img-card .status-text{
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--color-placeholder);
 }
