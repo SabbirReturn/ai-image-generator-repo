@@ -189,7 +189,6 @@ body.dark-theme .container{
     pointer-events: none;
     padding-left: 7px;
     background: var(--color-input);
-    /* top: 50%; */
     top: 50%;
     font-size: 0.9rem;
     color: var(--color-placeholder);
@@ -199,11 +198,9 @@ body.dark-theme .container{
     cursor: pointer;
     padding: 12px 20px;
     font-size: 1rem;
-    /* border-radius: 10px; */
     border-radius: 10px;
     background: var(--color-input);
     border: 1px solid var(--color-border);
-    /* transition: all 0.3s ease; */
     transition: all 0.3s ease;
 }
 
@@ -211,8 +208,6 @@ body.dark-theme .container{
     width: 100%;
     outline: none;
     height: 100%;
-    /* appearance: none; */
-    /* appearance: none; */
     appearance: none;
     color: var(--color-text);
 }
@@ -243,8 +238,6 @@ body.dark-theme .container{
 .main-content .gallery-grid{
     display: grid;
     gap: 15px;
-    /* margin-top: 30px; */
-    /* margin-top: 30px; */
     margin-top: 30px;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 }
@@ -328,6 +321,7 @@ body.dark-theme .container{
 
 .gallery-grid .img-card.error .status-container i{
     font-size: 1.7rem;
+    /* color: #ef4444; */
     color: #ef4444;
 }
 
