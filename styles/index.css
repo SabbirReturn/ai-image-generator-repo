@@ -212,6 +212,7 @@ body.dark-theme .container{
     outline: none;
     height: 100%;
     /* appearance: none; */
+    /* appearance: none; */
     appearance: none;
     color: var(--color-text);
 }
