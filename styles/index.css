@@ -293,6 +293,7 @@ body.dark-theme .container{
     width: 45px;
     color: #fff;
     backdrop-filter: blur(5px);
+    /* border-radius: 50%; */
     border-radius: 50%;
     border: none;
     cursor: pointer;
