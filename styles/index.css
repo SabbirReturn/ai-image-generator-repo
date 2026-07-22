@@ -304,6 +304,7 @@ body.dark-theme .container{
 
 .gallery-grid .img-card .img-download-btn:hover{
     transform: scale(1.05);
+    /* background: rgba(255, 255, 255, 0.4); */
     background: rgba(255, 255, 255, 0.4);
 }
 .gallery-grid .img-card .status-container{
