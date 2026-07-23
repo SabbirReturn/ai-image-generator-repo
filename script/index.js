@@ -1,6 +1,12 @@
 let themeToggle = document.querySelector('.theme-toggle');
 let promptInput = document.querySelector('.prompt-input');
+let promptFrom = document.querySelector('.prompt-form');
 let promptBtn = document.querySelector('.prompt-btn');
+let modelSelect = document.getElementById('model-select');
+let countSelect = document.getElementById('count-select');
+let ratioSelect = document.getElementById('ratio-select');
+let gridGallery = document.querySelectorAll('.gallery-grid')
+
 
 
 let examplePrompts=[
@@ -19,7 +25,7 @@ let examplePrompts=[
     "A cyberpunk city with neon signs and flying cars at night",
     "A peaceful bamboo forest with a hidden ancient temple",
     "A giant turtle carrying a village on its back in the ocean",
-]
+];
 
 
 // set theme based on saved preference or system default
@@ -40,9 +46,26 @@ let toggleTheme = ()=>{
     themeToggle.querySelector('i').classList = isDarkTheme ? "fa-solid fa-sun" : "fa-solid fa-moon";
 };
 
+let createImageCards =(selectedModel , imageCount, aspectRatio, promptText)
 
+// handle from submission
+let handleFromSubmit = (e)=>{
+    e.preventDefault();
+
+    // get from value
+    let selectedModel = modelSelect.value;
+    let imageCount = parseInt(countSelect.value) || 1;
+    let aspectRatio = ratioSelect.value || "1/1";
+    let promptText = promptInput.value.trim();
+
+    createImageCards(selectedModel , imageCount, aspectRatio, promptText)
+}
+
+// fill prompt input with random example
 promptBtn.addEventListener('click', ()=>{
     let prompt = examplePrompts[Math.floor(Math.random() * examplePrompts.length)]
+    promptInput.value = prompt;
+    promptInput.focus();
 })
-
+promptFrom.addEventListener("submit", handleFromSubmit);
 themeToggle.addEventListener('click',toggleTheme);
