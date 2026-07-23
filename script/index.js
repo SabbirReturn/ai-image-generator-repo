@@ -5,7 +5,7 @@ let promptBtn = document.querySelector('.prompt-btn');
 let modelSelect = document.getElementById('model-select');
 let countSelect = document.getElementById('count-select');
 let ratioSelect = document.getElementById('ratio-select');
-let gridGallery = document.querySelectorAll('.gallery-grid')
+let gridGallery = document.querySelector('.gallery-grid')
 
 
 
@@ -46,7 +46,44 @@ let toggleTheme = ()=>{
     themeToggle.querySelector('i').classList = isDarkTheme ? "fa-solid fa-sun" : "fa-solid fa-moon";
 };
 
-let createImageCards =(selectedModel , imageCount, aspectRatio, promptText)
+let generateImages = async (selectedModel , imageCount, aspectRatio, promptText)=>{
+    let MODEL_URL = `https://api-inference.huggingface.co/models/${selectedModel}`;
+
+    try{
+        let response = await fetch(MODEL_URL,{
+            headers: {
+                Authorization : `Bearer ${APY_KEY}`,
+                "Content-Type": "application/json",
+            },
+            method : "POST",
+            body: JSON.stringify(data),
+        })
+
+        let result = await response.blob();
+    } catch(error){
+        console.log(error)
+    }
+}
+
+// create placeholder cards with loading spinners
+let createImageCards =(selectedModel , imageCount, aspectRatio, promptText) =>{
+
+    gridGallery.innerHTML = "";
+
+    for(let i=0; i<imageCount; i++){
+        gridGallery.innerHTML += `
+            <div class="img-card loading" id ="img-card-${i}" style = "aspect-ratio: ${aspectRatio}">
+                        <div class="status-container">
+                            <div class="spinner"></div>
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p class="status-text">Generate...</p>
+                        </div>
+                        <img src="image/IMG_3913.jpg" alt="" class="result-img">
+                    </div>
+        `;
+    }
+    generateImages(selectedModel , imageCount, aspectRatio, promptText)
+}
 
 // handle from submission
 let handleFromSubmit = (e)=>{
